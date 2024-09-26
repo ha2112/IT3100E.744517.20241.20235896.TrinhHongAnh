@@ -13,7 +13,6 @@ public class solveFirstDegEquation {
         a21 =Double.parseDouble(JOptionPane.showInputDialog("Please enter a21"));
         a22 =Double.parseDouble(JOptionPane.showInputDialog("Please enter a22"));
         b2 =Double.parseDouble(JOptionPane.showInputDialog("Please enter b2"));
-        System.exit(0);
         Double x, y;
         Double delta = a11*b2 - a21*b1;
         if (delta == 0){
@@ -22,5 +21,8 @@ public class solveFirstDegEquation {
         }
         x = (b1*a22 - b2*a12) / (a11*a22 - a21*a12);
         y = (a11*b2 - a21*b1) / (a11*a22 - a21*a12);
+        String valueofx = String.valueOf(x), valueofy = String.valueOf(y);
+        JOptionPane.showMessageDialog(null, "x = " + valueofx + "\ny = " + valueofy, "Answers", JOptionPane.INFORMATION_MESSAGE);
+        System.exit(0);
     }
 }
