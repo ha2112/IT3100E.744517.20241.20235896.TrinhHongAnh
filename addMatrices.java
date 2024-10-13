@@ -33,6 +33,7 @@ public class addMatrices {
             }
             System.out.println();
         }
+        keyboard.close();
         System.exit(0);
     }
 }

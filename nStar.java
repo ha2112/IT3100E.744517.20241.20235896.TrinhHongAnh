@@ -9,5 +9,6 @@ public class nStar {
 		for (int i = 1; i <= Height; i++) {
 			System.out.println("  ".repeat(Height-i) + "*".repeat(2*i-1));
 		}
+		keyboard.close();
 	}
 }
