@@ -1,3 +1,4 @@
+package Lab01;
 //Actually solve first degree equationS but i was too lazy
 
 import javax.swing.JOptionPane;

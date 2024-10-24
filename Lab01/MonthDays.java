@@ -1,3 +1,4 @@
+package Lab01;
 
 import java.util.Scanner;
 public class MonthDays {
@@ -31,7 +32,7 @@ public class MonthDays {
 
         int month = convertMonthToNumber(monthInput);
         int days = getDaysInMonth(month, year);
-        scanner.close();
+
         System.out.println("Month: " + monthInput + ", Year: " + year + " has " + days + " days.");
     }
 

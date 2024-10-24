@@ -1,3 +1,4 @@
+package Lab01;
 import java.util.Scanner;
 
 public class addMatrices {
@@ -33,7 +34,6 @@ public class addMatrices {
             }
             System.out.println();
         }
-        keyboard.close();
         System.exit(0);
     }
 }
