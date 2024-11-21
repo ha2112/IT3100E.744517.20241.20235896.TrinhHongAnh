@@ -32,9 +32,7 @@ public class TestingPassingParameter {
         float oldCost1 = dvd1.getCost();
         
         // Create new DVDs with swapped information
-        dvd1 = new DigitalVideoDisc(dvd2.getTitle(), dvd2.getCategory(), 
-                                   dvd2.getDirector(), dvd2.getLength(), dvd2.getCost());
-        dvd2 = new DigitalVideoDisc(oldTitle1, oldCategory1, 
-                                   oldDirector1, oldLength1, oldCost1);
+        dvd1 = new DigitalVideoDisc(dvd2.getTitle(), dvd2.getCategory(), dvd2.getDirector(), dvd2.getLength(), dvd2.getCost());
+        dvd2 = new DigitalVideoDisc(oldTitle1, oldCategory1, oldDirector1, oldLength1, oldCost1);
     }
 }
