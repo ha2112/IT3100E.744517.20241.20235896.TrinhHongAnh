@@ -49,4 +49,16 @@ public class Cart {
     	System.out.println("Total cost: $" + this.totalCost());
     	System.out.println("***************************************************");
     }
+
+    public void searchCart(DigitalVideoDisc disc){
+        String title = disc.getTitle();
+        for (DigitalVideoDisc item : itemsOrdered){
+            String title2 = item.getTitle();
+            if (title == title2){
+                System.out.println("DVD found");
+                return;
+            }
+        }
+        System.out.println("Can't find DVD");
+    }
 }
