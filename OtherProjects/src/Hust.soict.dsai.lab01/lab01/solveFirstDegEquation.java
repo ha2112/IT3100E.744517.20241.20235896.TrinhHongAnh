@@ -1,4 +1,4 @@
-package Lab01;
+package Hust.soict.dsai.lab01;
 //Actually solve first degree equationS but i was too lazy
 
 import javax.swing.JOptionPane;
