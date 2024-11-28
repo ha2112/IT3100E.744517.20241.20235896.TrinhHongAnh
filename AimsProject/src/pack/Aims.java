@@ -16,5 +16,6 @@ public class Aims {
 
         cart.removeDigitalVideoDisc(dvd2);
         System.out.println("Total cost: " + cart.totalCost());
+        System.out.println("ID list: " + dvd1.getId() + " " + dvd2.getId() + " " + dvd3.getId() + " ");
     }
 }
