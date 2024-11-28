@@ -16,17 +16,6 @@ public class Cart {
         }
     }
 
-    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
-        for (DigitalVideoDisc disc : dvdList) {
-            addDigitalVideoDisc(disc);
-        }
-    }
-
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-        addDigitalVideoDisc(dvd1);
-        addDigitalVideoDisc(dvd2);
-    }
-
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         if (itemsOrdered.size() == 0) {
             System.out.println("The cart is empty");
@@ -42,5 +31,22 @@ public class Cart {
             total += disc.getCost();
         }
         return total;
+    }
+    
+    public void printCart() {
+    	System.out.println("***********************CART***********************");
+    	System.out.println("Ordered Items: ");
+    	int i = 0;
+    	for (DigitalVideoDisc disc : itemsOrdered) {
+    		String title = disc.getTitle();
+    		String director = disc.getDirector();
+    		String category = disc.getCategory();
+    		int length = disc.getLength();
+    		float cost = disc.getCost();
+    		System.out.println(++i + ".DVD - [" + title + "] - [" + category + "] - [" + director + "] - [" 
+    				+ length + "]: [" + cost + "]");
+    	}
+    	System.out.println("Total cost: $" + this.totalCost());
+    	System.out.println("***************************************************");
     }
 }
