@@ -1,54 +1,85 @@
 package hust.soict.dsai.aims.cart;
 
-import hust.soict.dsai.aims.store.Store;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Cart {
-    private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<>();
-    public final static int MAX_NUMBERS_ORDERED = 20;
+    private ArrayList<Media> itemsOrdered = new ArrayList<>();
 
-    public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-        if (itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
-            itemsOrdered.add(disc);
-            System.out.println("The disc has been added");
-            System.out.println("Current cart: " + itemsOrdered.size() + " discs");
+    // Add media to the cart
+    public void addMedia(Media media) {
+        if (!itemsOrdered.contains(media)) {
+            itemsOrdered.add(media);
+            System.out.println("Media added to cart: " + media.getTitle());
         } else {
-            System.out.println("The cart is full");
+            System.out.println("Media is already in the cart.");
         }
     }
 
-    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-        if (itemsOrdered.size() == 0) {
-            System.out.println("The cart is empty");
+    // Remove media from the cart
+    public void removeMedia(Media media) {
+        if (itemsOrdered.contains(media)) {
+            itemsOrdered.remove(media);
+            System.out.println("Media removed from cart: " + media.getTitle());
         } else {
-            itemsOrdered.remove(disc);
-            System.out.println("The disc has been removed");
+            System.out.println("Media not found in the cart.");
         }
     }
 
+    // Calculate total cost
     public float totalCost() {
         float total = 0;
-        for (DigitalVideoDisc disc : itemsOrdered) {
-            total += disc.getCost();
+        for (Media media : itemsOrdered) {
+            total += media.getCost();
         }
         return total;
     }
-    
-    public void printCart() {
-    	System.out.println("***********************CART***********************");
-    	System.out.println("Ordered Items: ");
-    	int i = 0;
-    	for (DigitalVideoDisc disc : itemsOrdered) {
-    		String title = disc.getTitle();
-    		String director = disc.getDirector();
-    		String category = disc.getCategory();
-    		int length = disc.getLength();
-    		float cost = disc.getCost();
-    		System.out.println(++i + ".DVD - [" + title + "] - [" + category + "] - [" + director + "] - [" 
-    				+ length + "]: [" + cost + "]");
-    	}
-    	System.out.println("Total cost: $" + this.totalCost());
-    	System.out.println("***************************************************");
+
+    // Filter by ID
+    public void filterById(int id) {
+        for (Media media : itemsOrdered) {
+            if (media.getId() == id) {
+                System.out.println(media.toString());
+                return;
+            }
+        }
+        System.out.println("No media found with ID: " + id);
+    }
+
+    // Filter by title
+    public void filterByTitle(String title) {
+        for (Media media : itemsOrdered) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                System.out.println(media.toString());
+                return;
+            }
+        }
+        System.out.println("No media found with title: " + title);
+    }
+
+    // Sort by title and cost
+    public void sortByTitleCost() {
+        itemsOrdered.sort(Comparator.comparing(Media::getTitle)
+                .thenComparing(Comparator.comparing(Media::getCost).reversed()));
+        System.out.println("Cart sorted by title and cost.");
+    }
+
+    // Sort by cost and title
+    public void sortByCostTitle() {
+        itemsOrdered.sort(Comparator.comparing(Media::getCost).reversed()
+                .thenComparing(Media::getTitle));
+        System.out.println("Cart sorted by cost and title.");
+    }
+
+    // Display cart contents
+    public void displayCart() {
+        System.out.println("Current cart contents:");
+        for (Media media : itemsOrdered) {
+            System.out.println(media.toString());
+        }
+        System.out.println("Total cost: " + totalCost());
     }
 }
