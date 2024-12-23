@@ -3,7 +3,7 @@ package hust.soict.dsai.test.disc;
 
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class TestingPassingParameter {
     public static void main(String[] args) {
